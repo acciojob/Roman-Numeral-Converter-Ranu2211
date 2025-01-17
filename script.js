@@ -10,30 +10,16 @@ function convertToRoman(num) {
     };
 
   //your code here
-	let roman = '';
-	const specialCases = {
-    900: 'CM',
-    400: 'CD',
-    90: 'XC',
-    40: 'XL',
-    9: 'IX',
-    4: 'IV',
-  };
-	 for (const [value, symbol] of Object.entries(specialCases)) {
-    while (num >= value) {
-      roman += symbol;
-      num -= value;
+	 let result = '';
+    for (let [value, symbol] of romanNums) {
+       while (num >= value) {
+            result += symbol;   
+            num -= value; 
+        }
     }
-  }
-  for (let i = 0; i < Object.keys(obj).length; i++) {
-    const [symbol, value] = obj[i];
-    while (num >= value) {
-      roman += symbol;
-      num -= value;
-    }
-  }
+    
+    return result;
 
-  return roman;
 
 
 
